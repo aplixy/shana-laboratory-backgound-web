@@ -1,0 +1,14 @@
+<div id="laboratoryIndexDraftListApp" ng-app="laboratoryIndexDraftListApp"
+	ng-controller="laboratoryIndexDraftListCtrl">
+	<table>
+		<tr ng-repeat="x in indexDrafts">
+			<td>{{ x.code }}</td>
+			<td>{{ x.type }}</td>
+			<td>{{ x.cnName }}</td>
+			<td>{{ x.enName }}</td>
+			<td>{{ x.unit }}</td>
+		</tr>
+	</table>
+</div>
+<script src="/laboratoryindexdraft/js/list.js" type="text/javascript">
+</script>
