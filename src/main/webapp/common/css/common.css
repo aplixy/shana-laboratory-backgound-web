@@ -2,7 +2,7 @@
 
 body {
 	font-family: "Helvetia Neue", Helvetia, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 1.4 .2857143;
 	color: #333;
 	background-color: #fff;
@@ -10,7 +10,6 @@ body {
 
 ul, li {
 	list-style: none;
-	float: left;
 }
 
 .title_bar {
@@ -59,9 +58,7 @@ ul, li {
 	padding: 0px
 }
 .main {
-	position: absolute;
-		width: 90%;
+	width: 90%;
 	margin: 0 auto;
-	padding: 0px;
-	top:36px;
+	padding-top: 36px;
 }

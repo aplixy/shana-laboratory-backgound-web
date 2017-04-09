@@ -5,20 +5,26 @@
 <meta content="width=device-width,user-scalable=no,initial-scale=1.0"
 	name="viewport">
 <title>Shana</title>
-<link rel="stylesheet"
-	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/common/css/common.css">
 </head>
-<body ng-app="app">
-	<div ng-controller='appCtrl'>
+<body ng-controller='appCtrl'>
+	<div >
 		<div class="title_bar">
 			<div class="title">
 				<div class="title_img">SHANA</div>
 				<div class="title_menu">
 					<ul class="tiltle_row">
-						<li class="title_col" ng-click="load('laboratoryindexdraft',{},'view1')">健康指标						
-						<li>
-						<li class="title_col">我的指标</li>
+						<li class="title_col" ng-click="load('laboratoryindexdraft',{})">化验单指标						
+						</li>
+					    <li class="title_col" ng-click="load('laboratoryindextypedraft',{})">指标类型						
+						</li>
+						<li class="title_col" ng-click="load('laboratoryindexunitdraft',{})">指标单位				
+						</li>
+						<li class="title_col" ng-click="load('hospitaldraft',{})">医院						
+						</li>
 					</ul>
 				</div>
 			</div>

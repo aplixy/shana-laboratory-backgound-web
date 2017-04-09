@@ -22,12 +22,34 @@ define([ "require", "angular", "angular-ui-router" ],
 					} ]);
 			app.controller('appCtrl', [ '$scope', '$state', '$rootScope',
 					function($scope, $state, $rootScope) {
-						$scope.load = function(pageName, params, parentDivId) {
+						$scope.load = function(pageName, params) {
 							$state.go(pageName, params);
 						};
-						// $scope.load("/laboratoryindexdraft/list");
-
 					} ]);
+			app.generateRouteState = function(controller, templateUrl, jsPath) {
+				var routeState = {};
+				if (controller && null != controller) {
+					routeState.controller = controller;
+				}
+				if (templateUrl && null != templateUrl) {
+					routeState.templateUrl = templateUrl;
+				}
+
+				if (jsPath && null != jsPath) {
+					routeState.resolve = {
+						loadCtrl : [ "$q", function($q) {
+							var deferred = $q.defer();
+							// 异步加载controller
+							require([ jsPath ], function() {
+								deferred.resolve();
+							});
+							return deferred.promise;
+						} ]
+					};
+				}
+				return routeState;
+
+			};
 			require([ 'domReady!' ], function(document) {
 				angular.bootstrap(document, [ "app" ]);
 			});
