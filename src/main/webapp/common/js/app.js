@@ -23,6 +23,7 @@ define([ "require", "angular", "angular-ui-router" ],
 			app.controller('appCtrl', [ '$scope', '$state', '$rootScope',
 					function($scope, $state, $rootScope) {
 						$scope.load = function(pageName, params) {
+							debugger;
 							$state.go(pageName, params);
 						};
 					} ]);

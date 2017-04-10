@@ -28,7 +28,7 @@
 					<td class="text-center">{{ x.minNormal }} - {{ x.maxNormal }}</td>
 					<td class="text-center">{{ x.unit }}</td>
 					<td class="text-center small"><a style="margin-right: 20px;"
-						href="#"> <span class="glyphicon glyphicon-edit"></span>编辑
+						href="#" ng-click="load('laboratoryindexdraftcreateoredit',{id:'{{x.id}}'})"> <span class="glyphicon glyphicon-edit"></span>编辑
 					</a> <a style="margin-right: 20px;" href="#"> <span
 							class="glyphicon glyphicon-remove"></span>删除
 					</a> <a href="#"> <span class="glyphicon glyphicon-share"></span>提交
@@ -38,9 +38,9 @@
 		</table>
 		<div>
 			<ul class="pager small" style="margin: 0px;">
-				<li><a href="#">上一页</a></li>
-				<li><a href="#">下一页</a></li>
-				<a style="margin-left: 20px;" href="#">总{{total}}行 </a>
+				<li><a href="#" ng-click="goPre()">上一页</a></li>
+				<li><a href="#" ng-click="goNext()">下一页</a></li>
+				<a style="margin-left: 20px;" href="#">总{{totalRow}}行 </a>
 				<a href="#">,每页</a>
 				<div style="margin:0px;" class="btn-group">
 					<button type="button"
@@ -49,9 +49,9 @@
 						<span>{{pageSize}}</span><span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" role="menu" style="padding-left: 2px;">
-						<li><a href="#">10</a></li>
-						<li><a href="#">50</a></li>
-						<li><a href="#">100</a></li>
+						<li><a href="#" ng-click="setPageSize(10)">10</a></li>
+						<li><a href="#" ng-click="setPageSize(50)">50</a></li>
+						<li><a href="#" ng-click="setPageSize(100)">100</a></li>
 					</ul>
 				</div>
 				<a href="#">行</a>
