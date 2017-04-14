@@ -1,9 +1,29 @@
 define([ 'app' ], function(app) {
+	app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider){   	   		
+    	var indexDraftCreateOrEditRouteState=app.generateRouteState("laboratoryIndexDraftCreateOrEditCtrl","/laboratoryindexdraft/createOrEdit.html",'/laboratoryindexdraft/js/createOrEdit.js'); 
+    	$stateProvider
+        .state('laboratoryindexdraftcreateoredit',indexDraftCreateOrEditRouteState);
+    }]);
 	app.register.controller('laboratoryIndexDraftListCtrl', function($scope, $http) {		
 		$scope.getData=function(){
+			var getDataUrl="http://localhost:9090/laboratoryindexdrafts?pageIndex="+$scope.pageIndex+"&pageSize="+$scope.pageSize;
+			if($scope.type&&$scope.type!="全部类型")
+			{
+				
+				getDataUrl+="&type="+$scope.type;
+			}
+			if($scope.code)
+			{
+				getDataUrl+="&code="+$scope.code;
+			}
+			if($scope.cnName)
+			{
+				getDataUrl+="&cnName="+$scope.cnName
+			}
+			debugger;
 			$http({
 				method : 'GET',
-				url : "http://localhost:9090/laboratoryindexdrafts?pageIndex="+$scope.pageIndex+"&pageSize="+$scope.pageSize
+				url : getDataUrl
 			}).then(function successCallback(response) {
 				$scope.indexDrafts = response.data.data;
 				$scope.totalRow=response.data.totalRow;
@@ -32,6 +52,26 @@ define([ 'app' ], function(app) {
 			$scope.pageSize=pageSize;
 			$scope.getData();
 		};
+		$scope.setType=function(type)
+		{
+		    $scope.type=type;
+		};
+		$scope.search=function()
+		{
+		    $scope.getData();
+		};
+		$scope.deleteElement=function(id)
+		{
+			var deleteUrl="http://localhost:9090/laboratoryindexdrafts/"+id;
+			$http({
+				method : 'DELETE',
+				url : deleteUrl
+			}).then(function successCallback(response) {
+				$scope.getData();
+			}, function errorCallback(response) {
+				// 请求失败执行代码
+			});
+		};
 		
 		if(!$scope.pageIndex)
 		{
@@ -40,6 +80,10 @@ define([ 'app' ], function(app) {
 		if(!$scope.pageSize)
 		{
 			$scope.pageSize=10;
+		}
+		if(!$scope.type)
+		{
+			$scope.type="全部类型";
 		}
 		$scope.getData();
 	});
