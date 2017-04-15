@@ -23,11 +23,11 @@ define([ "require", "angular", "angular-ui-router" ],
 			app.controller('appCtrl', [ '$scope', '$state', '$rootScope',
 					function($scope, $state, $rootScope) {
 						$scope.load = function(pageName, params) {
-							debugger;
-							$state.go(pageName, params);
+							$state.go(pageName,params, { reload: true });
 						};
 					} ]);
-			app.generateRouteState = function(controller, templateUrl, jsPath) {
+			
+			app.generateRouteState = function(controller, templateUrl, jsPath,params) {
 				var routeState = {};
 				if (controller && null != controller) {
 					routeState.controller = controller;
@@ -35,7 +35,12 @@ define([ "require", "angular", "angular-ui-router" ],
 				if (templateUrl && null != templateUrl) {
 					routeState.templateUrl = templateUrl;
 				}
-
+				
+				if(params&&null!=params){
+					
+					routeState.params=params;
+				}
+				
 				if (jsPath && null != jsPath) {
 					routeState.resolve = {
 						loadCtrl : [ "$q", function($q) {

@@ -4,7 +4,8 @@ define(["require", "angular", "angular-ui-router","app"], function(require, angu
     	$urlRouterProvider.otherwise('laboratoryindexdraft');   	
     	var hospitalRouteState=app.generateRouteState("hospitalDraftListCtrl","/hospitaldraft/list.html",'/hospitaldraft/js/list.js');   
     	var indexDraftRouteState=app.generateRouteState("laboratoryIndexDraftListCtrl","/laboratoryindexdraft/list.html",'/laboratoryindexdraft/js/list.js');
-    	var indexDraftCreateOrEditRouteState=app.generateRouteState("laboratoryIndexDraftCreateOrEditCtrl","/laboratoryindexdraft/createOrEdit.html",'/laboratoryindexdraft/js/createOrEdit.js'); 
+    	var indexDraftCreateOrEditRouteState=app.generateRouteState("laboratoryIndexDraftCreateOrEditCtrl","/laboratoryindexdraft/createOrEdit.html",'/laboratoryindexdraft/js/createOrEdit.js',{id:null}); 
+    	
     	$stateProvider
     	.state('hospitaldraft',hospitalRouteState)
         .state('laboratoryindexdraft',indexDraftRouteState)

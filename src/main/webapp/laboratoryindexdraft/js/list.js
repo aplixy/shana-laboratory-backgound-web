@@ -1,9 +1,4 @@
 define([ 'app' ], function(app) {
-	app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider){   	   		
-    	var indexDraftCreateOrEditRouteState=app.generateRouteState("laboratoryIndexDraftCreateOrEditCtrl","/laboratoryindexdraft/createOrEdit.html",'/laboratoryindexdraft/js/createOrEdit.js'); 
-    	$stateProvider
-        .state('laboratoryindexdraftcreateoredit',indexDraftCreateOrEditRouteState);
-    }]);
 	app.register.controller('laboratoryIndexDraftListCtrl', function($scope, $http) {		
 		$scope.getData=function(){
 			var getDataUrl="http://localhost:9090/laboratoryindexdrafts?pageIndex="+$scope.pageIndex+"&pageSize="+$scope.pageSize;
@@ -20,7 +15,6 @@ define([ 'app' ], function(app) {
 			{
 				getDataUrl+="&cnName="+$scope.cnName
 			}
-			debugger;
 			$http({
 				method : 'GET',
 				url : getDataUrl

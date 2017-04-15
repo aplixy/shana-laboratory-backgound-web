@@ -55,7 +55,8 @@ ul, li {
 .title_col {
 	width: 120px;
 	float: left;
-	padding: 0px
+	padding: 0px;
+	cursor:pointer;
 }
 .main {
 	width: 90%;
