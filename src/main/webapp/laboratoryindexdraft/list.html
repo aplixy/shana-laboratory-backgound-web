@@ -62,13 +62,14 @@
 		<table class="table table-bordered"  style="margin-top:10px;">
 			<thead>
 				<tr>
-					<th style="width: 10%;" class="text-center">编码</th>
-					<th style="width: 10%;" class="text-center">类型</th>
-					<th style="width: 15%;" class="text-center">中文名称</th>
-					<th style="width: 15%;" class="text-center">英文名称</th>
+					<th style="width: 8%;" class="text-center">编码</th>
+					<th style="width: 8%;" class="text-center">类型</th>
+					<th style="width: 13%;" class="text-center">中文名称</th>
+					<th style="width: 13%;" class="text-center">英文名称</th>
 					<th style="width: 10%;" class="text-center">数值范围</th>
 					<th style="width: 10%;" class="text-center">正常值范围</th>
-					<th style="width: 10%;" class="text-center">单位</th>
+					<th style="width: 8%;" class="text-center">单位</th>
+					<th style="width: 10%;" class="text-center">状态</th>
 					<th style="width: 20%;" class="text-center">操作</th>
 				</tr>
 			</thead>
@@ -81,7 +82,8 @@
 					<td class="text-center">{{ x.min }} - {{ x.max }}</td>
 					<td class="text-center">{{ x.minNormal }} - {{ x.maxNormal }}</td>
 					<td class="text-center">{{ x.unit }}</td>
-					<td class="text-center small"><a style="margin-right: 20px;"
+					<td class="text-center">{{ x.status }}</td>
+					<td class="text-center><a style="margin-right: 20px;"
 						href="#"
 						ng-click="load('laboratoryindexdraftcreateoredit',{id:x.id})">
 							<span class="glyphicon glyphicon-edit"></span>编辑

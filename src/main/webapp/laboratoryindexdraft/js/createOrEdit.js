@@ -1,7 +1,12 @@
 define(["app"],function(app){
     app.register.controller('laboratoryIndexDraftCreateOrEditCtrl',['$scope','$http','$stateParams', function($scope,$http,$stateParams){
     	$scope.id = $stateParams.id;
-    	$scope.save = function() {
+    	$scope.save = function(invalid) {
+    		if(invalid)
+    		{
+    			$scope.submitted = true;
+    			return;
+    		}
     		var data = {
     			code : $scope.code,
     			type : $scope.type,
@@ -37,6 +42,8 @@ define(["app"],function(app){
     					});
 
     		}
+    		$scope.submitted = false;
+    		return true;
     	};
     	$scope.reset=function()
 		{
