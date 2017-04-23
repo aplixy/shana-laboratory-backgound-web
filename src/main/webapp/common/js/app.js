@@ -56,6 +56,15 @@ define([ "require", "angular", "angular-ui-router" ],
 				return routeState;
 
 			};
+			app.isPhone = function() {
+				var screen_h=window.screen.height;
+				var screen_w=window.screen.width;
+				var min=screen_h<screen_w?screen_h:screen_w;
+				if(min<768)
+					return true;
+				return false;
+				
+			}
 			require([ 'domReady!' ], function(document) {
 				angular.bootstrap(document, [ "app" ]);
 			});
